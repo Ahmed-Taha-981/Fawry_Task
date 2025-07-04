@@ -1,17 +1,19 @@
 package model;
 
-import java.time.LocalDate;
-
 public abstract class ExpirableProduct extends Product {
-    protected LocalDate expiryDate;
+    protected boolean isExpired;
 
-    public ExpirableProduct(String name, double price, int quantity, LocalDate expiryDate) {
+    public ExpirableProduct(String name, double price, int quantity, boolean isExpired) {
         super(name, price, quantity);
-        this.expiryDate = expiryDate;
+        this.isExpired = isExpired;
     }
 
     @Override
     public boolean isExpired() {
-        return expiryDate.isBefore(LocalDate.now());
+        return isExpired;
+    }
+
+    public void setExpired(boolean expired) {
+        this.isExpired = expired;
     }
 } 

@@ -1,12 +1,10 @@
 package model;
 
-import java.time.LocalDate;
-
 public class Cheese extends ExpirableProduct implements Shippable {
     private double weight;
 
-    public Cheese(String name, double price, int quantity, LocalDate expiryDate, double weight) {
-        super(name, price, quantity, expiryDate);
+    public Cheese(String name, double price, int quantity, boolean isExpired, double weight) {
+        super(name, price, quantity, isExpired);
         this.weight = weight;
     }
 

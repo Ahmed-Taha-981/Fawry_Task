@@ -3,20 +3,16 @@ package test;
 import model.*;
 import service.CheckoutService;
 
-import java.time.LocalDate;
-
 public class Main {
     public static void main(String[] args) {
         // Use case 1: normal checkout
-        Cheese cheese = new Cheese("Cheese ", 100, 5, LocalDate.now().plusDays(5), 0.4);
-        Biscuits biscuits = new Biscuits("Biscuits ", 150, 2, LocalDate.now().plusDays(10), 0.7);
+        Cheese cheese = new Cheese("Cheese ", 100, 5, false, 0.4);
+        Biscuits biscuits = new Biscuits("Biscuits ", 150, 2, false, 0.7);
         TV tv = new TV("TV", 200, 3, 5.0);
         MobileScratchCard scratchCard = new MobileScratchCard("Scratch Card", 50, 10);
 
-        
         Customer customer = new Customer("Ahmed", 5000);
 
-        
         Cart cart = new Cart();
         try {
             cart.add(cheese, 2);
@@ -30,7 +26,7 @@ public class Main {
         CheckoutService.checkout(customer, cart);
 
         // Use case 2: expired product
-        Cheese expiredCheese = new Cheese("Old Cheese", 80, 1, LocalDate.now().minusDays(1), 0.3);
+        Cheese expiredCheese = new Cheese("Old Cheese", 80, 1, true, 0.3);
         Cart cart2 = new Cart();
         try {
             cart2.add(expiredCheese, 1);
