@@ -76,4 +76,7 @@ Customization
 -------------
 To add new product types, simply extend the `Product` class (or one of its subclasses) and update the logic in the relevant services if needed. The system is designed for easy extension and modification.
 
+
+Output
+-------------
 ![alt text](image.png)
